@@ -10,9 +10,11 @@ function Navbar_component()
 
                 <Nav className="ml-auto">
                             <Nav.Link href="/">Home </Nav.Link>
-                            <Nav.Link href="/login">Contact Us</Nav.Link>
+                            <Nav.Link href="/">My Cart </Nav.Link>
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/register">Register</Nav.Link>
+                            <Nav.Link href="/login">Contact Us</Nav.Link>
+
                         
                 </Nav>
                 
