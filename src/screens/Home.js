@@ -13,13 +13,13 @@ function Home()
         <Navbar_component />
         <Image_slider />
 
-        <h1 className="  text-center">My Products</h1>
+        <h1 className="  text-center">My Products {window.location.pathname}</h1>
 
 
         <div className="row">
                 <div className="col-lg-3">
 
-                         <My_card_component product_image={productImage} product_name="Urban Fashion Sneakers For Men(Red)" product_price="₹1,860" product_description="ColorBlack, GreenOuter material"/>
+                         <My_card_component product_image="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" product_name="Urban Fashion Sneakers For Men(Red)" product_price="₹1,860" product_description="ColorBlack, GreenOuter material"/>
 
                 </div>
 
