@@ -47,6 +47,7 @@ function Navbar_component()
                             <Link className={"nav-link " + MyActiveClass("/login")}  to="/login">Login </Link>
                             <Link className={"nav-link " + MyActiveClass("/register")}  to="/register">Register </Link>
                             <Link className={"nav-link " + MyActiveClass("/Contact")}  to="/Contact">Contact us </Link>
+                            <Link className={"nav-link " + MyActiveClass("/register_second")}  to="/register_second">Register Second </Link>
                         
                         
                 </Nav>

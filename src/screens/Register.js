@@ -46,7 +46,8 @@ function Register()
                 success: true
               });
 
-              this.props.history.push('/');
+             // history.push("/login") ;
+
             //   <Redirect  to='/login' />
             }
           })
