@@ -23,7 +23,8 @@ function Register()
         setValues({ ...values, error: false, [name]: event.target.value });
       };
     
-      const onSubmit = event => {
+      const onSubmit = event =>
+       {
         event.preventDefault();
         setValues({ ...values, error: false });
         signup({ name, email, password })
