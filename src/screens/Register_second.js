@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import Navbar_component from '../Components/Navbar_component';
 import {Function_registerAPI} from './API2';
+import {BrowserRouter,Switch,Route,Link} from "react-router-dom";
 
 export default function Register_second() 
 {
 
+  
     //array use state 
    const [myvalues,setValues] = useState({
             name:'',
@@ -46,8 +48,10 @@ export default function Register_second()
            } 
            else 
            {
+            
+            setValues({ ...myvalues,  success: true });
                
-            updatedatafromBackendadd(data);
+              updatedatafromBackendadd(data);
                     console.log(data);
                     setValues({
                     ...myvalues,
@@ -64,13 +68,56 @@ export default function Register_second()
 
 
 
+     const Successmsg = () =>{
+       return(<div className="row">
+         <div className="col-lg-4 offset-4">
+
+            <div className="alert alert-success">
+              Account Is Created !!!!! 
+
+              now you can login Click here for login <Link to="/">Home</Link>
+            </div>
 
 
+         </div>
+
+
+
+       </div>);
+     }
+
+     const errorssmsg = () =>{
+       return(<div className="row">
+         <div className="col-lg-4 offset-4 mt-4">
+
+            <div className="alert alert-danger">
+             {error} 
+            </div>
+
+
+         </div>
+
+
+
+       </div>);
+     }
+    
+     const myfunction = ()=>{
+      if(error) {
+        return errorssmsg()
+      }
+      else if(success)
+      {
+        return  Successmsg()
+      }
+     }
   
+     
 
     return (
         <div>
             <Navbar_component />
+            {myfunction()}
 
             <div className="row">
 
@@ -81,19 +128,19 @@ export default function Register_second()
 
                                 <div className="form-group">
                                             <label htmlFor="">User Name : </label>
-                                            <input type="text" onKeyUp={handleChange("name")}  required placeholder="Enter User Name"
-                                             className="form-control"/>
+                                            <input type="text" value={name}  onChange={handleChange("name")}  required placeholder="Enter User Name"
+                                             className="form-control" />
 
                                 </div>
                                 <div className="form-group">
                                             <label htmlFor="">User Email : </label>
-                                            <input type="email" onKeyUp={handleChange("email")}   required placeholder="Enter User Email"
+                                            <input type="email" value={email} onChange={handleChange("email")}   required placeholder="Enter User Email"
                                              className="form-control"/>
 
                                 </div>
                                 <div className="form-group">
                                             <label htmlFor="">User Password : </label>
-                                            <input type="password"  onKeyUp={handleChange("password")}     required placeholder="Enter User Password"
+                                            <input type="password" value={password}   onChange={handleChange("password")}     required placeholder="Enter User Password"
                                              className="form-control"/>
 
                                 </div>
@@ -110,10 +157,13 @@ export default function Register_second()
                         <li>User Name : {myvalues.name}</li>
                         <li>User Email : {myvalues.email}</li>
                         <li>User password : {myvalues.password}</li>
+                        <li>User succss : {myvalues.success}</li>
                     </ul>
+                    <br />
+                   
 
                     <p>
-                        Data From Backend :   {JSON.stringify(updatedatafromBackendadd)}
+                        Data From Backend :   {JSON.stringify(datafromBackend)}
 
                     </p>
 

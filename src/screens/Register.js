@@ -12,12 +12,74 @@ function Register()
         email: "",
         password: "",
         error:false,
+        errorMSG:'',
         success: false
       });
 
+
+
+
+
+      const mySuccessDiv = () =>
+      {
+        return(<div className="row">
+
+          
+          <div className="col-lg-4"></div>
+          <div  className="col-lg-4 datamsg">
+
+                <div className="alert alert-success">
+                  Account Create Sucessfulyy !!!!!!!!
+                  Now you Can Login <Link to="login">Click Here For Login</Link>
+                </div>
+
+
+
+          </div>
+
+         
+        </div>);
+      }
+
+      const { name, email, password, error,errorMSG, success } = values;
+
+      const myErrorDiv = () =>
+      {
+        return(<div className="row">
+
+            <div className="col-lg-4"></div>
+            <div className="col-lg-4">
+              <div className="alert alert-danger">
+                Error In Registration : Please Try Again !!!
+                <p>
+                  {errorMSG}
+                </p>
+              </div>
+            </div>
+
+        </div>);
+      
+      }
+
+
+      const myMsgDiv = () =>
+      {
+        if(error === true)
+        {
+           return myErrorDiv();
+        }
+        else if(success === true)
+        {
+
+          return mySuccessDiv();
+        }
+
+      }
+
+
+
     const [datafromBackend, datafromBackendadd] = useState();
     
-      const { name, email, password, error, success } = values;
     
       const handleChange = name => event => {
         setValues({ ...values, error: false, [name]: event.target.value });
@@ -31,10 +93,17 @@ function Register()
           .then(data => {
             if (data.error) 
             {
-              setValues({ ...values, error: data.error, success: false });
-            } else 
+              setValues({ ...values, error: true, errorMSG:data.error, success: false, });
+            }
+            else if (data.err) 
+            {
+              setValues({ ...values, error: true, errorMSG:data.err, success: false, });
+            }
+            else 
             {
             
+              setValues({ ...values, success: true });
+
 
              datafromBackendadd(data);
                 console.log(data);
@@ -58,6 +127,9 @@ function Register()
     return(<div>
         <Navbar_component />
 
+        {myMsgDiv()}
+        
+
         <div className="row">
 
 
@@ -78,21 +150,23 @@ function Register()
                             <input type="password"  value={password} onChange={handleChange("password")} required placeholder="Enter Your Password" className="form-control"/>
                         </div>
                        
-                        <div className="form-group">
-                        {JSON.stringify(values)}
-                        </div>
+                       
 
                         <div className="form-group">
                             <button  onClick={onSubmit} className="btn btn-danger mx-auto d-block">
                                 Register
                             </button>
-                            {JSON.stringify(datafromBackend)}
+                            {/* {JSON.stringify(datafromBackend)} */}
                         </div>
                        
 
                     </div>
                     <div className="col-lg-4 ">    
-                    <p className="text-light text-center">{JSON.stringify(values)}</p>    <p className="text-light text-center">{JSON.stringify(values)}</p></div>
+                    {/* <p className="text-light text-center">{JSON.stringify(values)}</p>  */}
+                    
+                    
+                       {/* <p className="text-light text-center">{JSON.stringify(values)}</p> */}
+                       </div>
                 
 
 

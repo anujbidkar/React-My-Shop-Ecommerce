@@ -3,10 +3,13 @@ import productImage2 from '../Images/product2.jpg';
 import {BrowserRouter,Switch,Route,Link} from "react-router-dom";
 import {Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee,faTags } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee,faTags,faambulance } from '@fortawesome/free-solid-svg-icons'
+
 function ProductInformation()
 {
-    const element = <FontAwesomeIcon icon={faTags} />
+    
+    const element = <FontAwesomeIcon icon={faCoffee} />
+    
     return(
         <div>
             <Navbar_component />
@@ -41,7 +44,7 @@ function ProductInformation()
 
                         <div className="col-lg-6 secondDivProduct  productInfoDiv">
                                    
-                                   <h1>  Emporio Armani   {element}                      <FontAwesomeIcon icon={["fal", "coffee"]} />
+                                   <h1>  Emporio Armani               
 
                                                                R11201 Aviator Analog    Your <FontAwesomeIcon icon="coffee" /> is hot and ready! </h1>
 
@@ -53,10 +56,10 @@ function ProductInformation()
                                 <h4 className="avoffer">Available offers</h4>
 
                                 <ul>
-                                     <li> <i className="fas fa-home"></i> Special PriceGet extra 28% off (price inclusive of discount)  <Link to="/">T&C</Link> </li>
-                                    <li>Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit Card <Link to="/">T&C</Link></li>
-                                    <li>Bank Offer10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply <Link to="/">T&C</Link></li>
-                                    <li>EMI starting from ₹584/month   <Link to="/">View Plans > </Link></li>
+                                     <li> {element}   Special PriceGet extra 28% off (price inclusive of discount)  <Link to="/">T&C</Link> </li>
+                                    <li> {element}   Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit Card <Link to="/">T&C</Link></li>
+                                    <li>  {element}  Bank Offer10% Off on Bank of Baroda Mastercard debit card first time transaction, Terms and Condition apply <Link to="/">T&C</Link></li>
+                                    <li>  {element}   EMI starting from ₹584/month   <Link to="/">View Plans > </Link></li>
                                 </ul>
 
 
