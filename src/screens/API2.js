@@ -1,5 +1,5 @@
 // const registerAPI = "http://localhost:3100/api/register";
-const productInsert = "http://localhost:3100/api/product/create";
+const productInsert = "https://myshopbackend.herokuapp.com/api/product/create";
 
 // fetch : GET ( POSTMAN / NODE.jS)
 
@@ -88,8 +88,7 @@ export const getCategories = () =>
 
 
 
-
-export const getAllProducts = () => {
+export const getAllproducts = () => {
   return fetch(`https://myshopbackend.herokuapp.com/api/product`,
    {
     method: "GET"
@@ -99,6 +98,25 @@ export const getAllProducts = () => {
     })
     .catch(err => console.log(err));
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export const FunctionAllCategories = () => {

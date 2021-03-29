@@ -72,19 +72,19 @@ export default function Insert_product() {
 
 <div className="form-group">
             <label>Product Name <span className="text-danger">*</span> </label>
-            <input placeholder="Enter Product Name" onKeyUp={handleChange("name")} type="text" className="form-control"/>
+            <input placeholder="Enter Product Name" value={name} onChange={handleChange("name")} type="text" className="form-control"/>
 
 </div>
 <div className="form-group">
             <label>Product Description <span className="text-danger">*</span> </label>
 
 
-            <textarea className="form-control" onKeyUp={handleChange("description")} rows="5"></textarea>
+            <textarea className="form-control" value={description} onChange={handleChange("description")} rows="5"></textarea>
 
 </div>
 <div className="form-group">
             <label>Product Price <span className="text-danger">*</span> </label>
-            <input placeholder="Enter Product Name " onKeyUp={handleChange("price")} type="number" step="any"  className="form-control"/>
+            <input placeholder="Enter Product Name " value={price} onChange={handleChange("price")} type="number" step="any"  className="form-control"/>
 
 </div>
 
